@@ -4,31 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
-        body { margin: 0; padding: 0; background: #333; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+        body { margin: 0; padding: 0; background: #fff; display: flex; justify-content: center; height: 100vh; overflow: hidden; }
         
-        .contenedor { 
-            position: relative; 
+        .pantalla { 
             width: 100vw; 
-            max-width: 400px; 
-            /* Reducción de altura equivalente a dos filas */
-            margin-bottom: -40px; 
+            height: 100vh; 
+            position: relative;
+            background-image: url('1779597858640.jpg'); 
+            background-size: 100% 100%; /* Esto asegura que llene la pantalla sin dejar bordes */
+            background-position: center; 
+            background-repeat: no-repeat; 
         }
         
-        /* La imagen mantiene su proporción natural pero ajustada al contenedor */
-        .imagen-fondo { width: 100%; display: block; }
-        
-        .zona-datos { position: absolute; top: 32%; left: 8%; right: 8%; display: flex; flex-direction: column; }
+        /* Ajuste fino: usamos un porcentaje de la altura para que no se mueva */
+        .zona-datos { 
+            position: absolute; 
+            top: 25%; 
+            left: 5%; 
+            right: 5%; 
+            z-index: 10; 
+            display: flex; 
+            flex-direction: column; 
+        }
         
         .fila { background: transparent !important; padding: 2px 0; margin-bottom: 2px; width: 100%; border: none !important; }
-        .etiqueta { color: #005696; font-size: 3.5vw; font-weight: 600; font-family: sans-serif; }
-        .dato, select { border: none; font-size: 3.8vw; color: #000; outline: none; font-weight: 300; font-family: sans-serif; background: transparent !important; width: 100%; appearance: none; padding: 0; }
+        .etiqueta { color: #005696; font-size: 3.2vw; font-weight: 600; font-family: sans-serif; }
+        .dato, select { border: none; font-size: 3.6vw; color: #000; outline: none; font-weight: 300; font-family: sans-serif; background: transparent !important; width: 100%; appearance: none; padding: 0; }
     </style>
 </head>
 <body>
 
-<div class="contenedor">
-    <img src="1779597858640.jpg" class="imagen-fondo">
-    
+<div class="pantalla">
     <div class="zona-datos">
         <div class="fila"><div class="etiqueta">Monto (Bs.):</div><input class="dato" id="monto" value="150,00" oninput="formatearMonto(this)"></div>
         <div class="fila"><div class="etiqueta">Nro. de referencia:</div><input class="dato" id="ref" value=""></div>
